@@ -1,8 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
-// import schema from Book.js
-const rentalSchema = require('./Rental');
+const Rental = require('./Rental');
 
 const adminUserSchema = new Schema(
   {
@@ -21,8 +19,7 @@ const adminUserSchema = new Schema(
       type: String,
       required: true,
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
-    rentals: [rentalSchema],
+    rentals: [Rental],
   },
   // set this to use virtual below
   {
@@ -48,6 +45,6 @@ adminUserSchema.methods.isCorrectPassword = async function (password) {
 };
 
 
-const User = model('AdminUser', adminUserSchema);
+const AdminUser = model('AdminUser', adminUserSchema);
 
 module.exports = AdminUser;
