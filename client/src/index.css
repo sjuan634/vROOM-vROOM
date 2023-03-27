@@ -11,3 +11,145 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav>ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+  background-color: aqua;
+  padding: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap');
+
+body {
+  height: 95vh;
+  background: #000000;
+  text-align: center;
+  color: #E0E0E0;
+  font-family: 'Fira Mono', monospace;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-family: 'Permanent Marker', cursive;
+}
+
+div {
+  transform-style: preserve-3d;
+}
+
+svg {
+  width: clamp(300px, 70%, 600px);
+  height: 500px;
+
+}
+
+#rocket {
+
+  transform: translateY(750px);
+
+  animation: launch 2s ease-out forwards;
+}
+
+@keyframes launch {
+  from {
+    transform: translateY(750px);
+  }
+
+  to {
+    perspective: 500px;
+    transform: translateY(0px);
+  }
+}
+
+#stars {
+  animation: twinkling 2s linear;
+}
+
+@keyframes twinkling {
+
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.text {
+  opacity: 0;
+  animation: appear 1s ease-in forwards;
+  animation-delay: 1.8s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+a {
+  color: #F66947;
+  text-decoration: none;
+}
+
+.login-card {
+  width: 500px;
+  min-height: 300px;
+  padding: 20px;
+  background-color: white;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.login-card>form {
+  display: flex;
+  width: 80%;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card>form>input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.login-card>form>button {
+  width: 100%;
+  background: blue;
+  margin-top: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+  transition: all .1s linear;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.login-card>form>button:hover {
+  background-color: rgb(13, 87, 112);
+}
+
+.login-card>h3 {
+  color: black;
+}
