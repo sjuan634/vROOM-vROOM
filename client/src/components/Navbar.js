@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav>
             <ul>
                 <li><Link to='/'>Home</Link></li>
-                <li><Link to='/rooms'>Bookings</Link></li>
+                <li><Link to='/rooms'>Dashboard</Link></li>
                 {loggedin ?
                     (<li><Link onClick={() => Auth.logout()}>Logout</Link></li>)
                     : (<>
