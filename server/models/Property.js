@@ -20,10 +20,6 @@ const propertySchema = new Schema({
         required: true,
         default: Date.now,
     },
-    room: {
-        type: Boolean,
-        required: true,
-    },
     house: {
         type: Boolean,
         required: true,

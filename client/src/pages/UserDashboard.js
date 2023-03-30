@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { Navbar } from '../components'
-import { Link } from 'react-router-dom'
+import { BookListings } from '../components'
+
 
 const UserDashboard = () => {
    
     return (
         <>
             <Navbar />
+            < BookListings/>
         </>
     )
 }
