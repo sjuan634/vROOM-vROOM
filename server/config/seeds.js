@@ -1,4 +1,5 @@
 const db = require('./connection');
+
 const { Property, User } = require('../models');
 const bcrypt = require('bcrypt')
 
