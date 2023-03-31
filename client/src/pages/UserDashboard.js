@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Navbar } from '../components'
-import { BookListings } from '../components'
+import { BookedListing } from '../components'
 
 
 const UserDashboard = () => {
@@ -8,9 +8,9 @@ const UserDashboard = () => {
     return (
         <>
             <Navbar />
-            < BookListings/>
+            < BookedListing/>
         </>
     )
 }
 
-export default UserDashboard
+export default UserDashboard;

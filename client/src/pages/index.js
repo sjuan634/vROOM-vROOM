@@ -4,4 +4,5 @@ import UserLogin from "./UserLogin";
 import UserSignup from "./UserSignup";
 import AdminLogin from "./AdminLogin";
 import AdminSignup from "./AdminSignup";
-export { Home, Error, UserLogin, UserSignup, AdminLogin, AdminSignup }
+import UserDashboard from "./UserDashboard";
+export { Home, Error, UserLogin, UserSignup, AdminLogin, AdminSignup, UserDashboard }
