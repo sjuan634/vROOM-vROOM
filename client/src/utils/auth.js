@@ -27,10 +27,17 @@ class AuthService {
         return localStorage.getItem('id_token');
     }
 
-    login(idToken, isAdmin) {
+    login(idToken, isAdmin, id) {
         // Saves user token to localStorage
-        localStorage.setItem('id_token', idToken);
-        localStorage.setItem('is_admin', isAdmin);
+        if (isAdmin) {
+            localStorage.setItem('id_token', idToken);
+            localStorage.setItem('user_id', id);
+            localStorage.setItem('is_admin', isAdmin);
+        } else {
+            localStorage.setItem('id_token', idToken);
+            localStorage.setItem('user_id', id);
+        }
+
 
         window.location.assign('/');
     }
@@ -39,6 +46,7 @@ class AuthService {
         // Clear user token and profile data from localStorage
         localStorage.removeItem('id_token');
         localStorage.removeItem('is_admin');
+        localStorage.removeItem('user_id');
         // this will reload the page and reset the state of the application
         window.location.assign('/');
     }

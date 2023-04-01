@@ -8,23 +8,26 @@ const typeDefs = gql`
     email: String
     isAdmin: Boolean
     properties: [Property]
+    propertiesByUserId(user_id: ID!): [Property]
   }
 
   type Property {
-    _id: ID
-    name: String
-    address: String
-    user_id: ID
-    images: [String]
-    night_cost: Float
-    available_date: String
-    room: Boolean
-    house: Boolean
-    max_guests: Int
-    bed_number: Int
-    bath_number: Int
-    location: Location
-    description: String
+    _id: ID!
+    user_id: ID!
+    name: String!
+    images: [String!]!
+    night_cost: Float!
+    isAvailable: Boolean!
+    room: Boolean!
+    startDate:String! 
+    endDate:String!
+    house: Boolean!
+    max_guests: Int!
+    bed_number: Int!
+    bath_number: Int!
+    location: Location!
+    address: String!
+    description: String!
   }
 
   type Location {
@@ -37,10 +40,16 @@ const typeDefs = gql`
     user: User
   }
 
+  type CheckoutSession {
+    id: ID!
+    url: String!
+  }
+
   type Query {
     user: User
     property(_id: ID!): Property
     properties: [Property]
+    userProperties(user_id:ID!):[Property]
   }
 
   type Mutation {
@@ -48,26 +57,31 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addProperty(
       user_id: ID!
-      images: [String]
-      night_cost: Float
-      available_date: String
-      room: Boolean
-      house: Boolean
-      max_guests: Int
-      bed_number: Int
-      bath_number: Int
-      location: LocationInput
+      name: String!
+      images: [String!]!
+      night_cost: Float!
+      isAvailable: Boolean!
+      room: Boolean!
+      house: Boolean!
+      max_guests: Int!
+      bed_number: Int!
+      bath_number: Int!
+      startDate:String!
+      endDate:String!
+      location: LocationInput!
       address: String!
-      description: String
-    ): Property
+      description: String!
+    ): Property!
     updateProperty(
       _id: ID!
       name: String
       address: String
+      startDate:String
+      endDate:String
       user_id: ID
       images: [String]
       night_cost: Float
-      available_date: String
+      isAvailable: Boolean
       room: Boolean
       house: Boolean
       max_guests: Int
@@ -79,6 +93,7 @@ const typeDefs = gql`
     deleteProperty(_id: ID!): Property
     signupAdmin(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     adminLogin(email: String!, password: String!): Auth
+    createCheckoutSession(propertyId: ID!, nights: Int!): CheckoutSession!
   }
 
   input LocationInput {

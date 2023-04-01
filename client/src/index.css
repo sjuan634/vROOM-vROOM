@@ -21,6 +21,81 @@ nav>ul {
   padding: 10px;
 }
 
+.reserve_btn {
+  padding: 10px 20px;
+  background-color: cyan;
+  margin: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.bill_card {
+  display: flex;
+  padding: 10px;
+  background-color: rgb(214, 211, 211);
+  flex-direction: column;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.bill_card>h3 {
+  font-size: 22px;
+  text-align: center;
+  margin: 10px;
+  font-family: sans-serif;
+
+}
+
+.bill_item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.total_bill {
+  padding: 10px;
+  border: .5px solid black;
+  border-radius: 10px;
+}
+
+.card_container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 10px;
+}
+
+.property_main {
+  width: 80%;
+  margin: 50px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.property_main_details {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: space-around;
+
+}
+
+.night_input {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.night_input>input {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap');
 
 body {
@@ -152,4 +227,105 @@ a {
 
 .login-card>h3 {
   color: black;
+}
+
+.disabled {
+  background-color: gray;
+  cursor: default;
+}
+
+.globe_container {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  height: 120vh;
+  overflow: hidden;
+  background: url('https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmlnaHQlMjBza3l8ZW58MHx8MHx8&w=1000&q=180');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.success-message {
+  background-color: #2ecc71;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.property_details {
+  display: flex;
+  width: 40%;
+  color: rgb(219, 62, 62);
+  text-decoration: underline;
+  font-weight: bold;
+  border-radius: 15px;
+  background-color: lightblue;
+  gap: 50px;
+  font-size: 14px;
+  padding: 5px;
+  margin-left: 50px;
+}
+
+.add_property {
+  width: 80%;
+  margin: auto;
+  border-radius: 15px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  background-color: gray;
+}
+
+.add_property input {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.add_property>form>div {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  align-items: center;
+  background-color: lightgray;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.voice_desc>div {
+  display: flex;
+  gap: 20;
+}
+
+.voice_desc>div>button {
+  padding: 5px 20px;
+  width: 80px;
+  margin: 20px;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+
+
+}
+
+.voice_desc>textarea {
+  border: 1px solid black;
+  width: 300px;
+  height: 100px;
+}
+
+
+.admin_property {
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
 }

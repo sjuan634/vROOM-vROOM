@@ -13,11 +13,11 @@ const AdminSignup = () => {
     const [addUser, { loading, error, data }] = useMutation(SIGNUP_ADMIN);
 
     const handleSubmit = async (event) => {
-        console.log('first')
         try {
             const { data } = await addUser({ variables: { firstName, lastName, email, password } });
             const token = data.signupAdmin.token
-            Auth.login(token, true)
+            const id = data.signupAdmin.user._id
+            Auth.login(token, true, id)
             console.log('New user added:', data.addUser.user);
         } catch (error) {
             console.error('Error adding user:', error);
