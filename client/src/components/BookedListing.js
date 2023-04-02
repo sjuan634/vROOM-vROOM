@@ -12,16 +12,7 @@ function BookedListing () {
   if (data) {
     properties = data.properties;
   }
-//   const [bookedListings, setBookedListings] = useState([]);
-
-//   useEffect(() => {
-//     const fetchBookedListings = async () => {
-//       const listings = await Auth.getBookedListings(); // Call the query to fetch booked listings
-//       setBookedListings(QUERY_PROPERTIES);
-//     };
-//     fetchBookedListings();
-//   }, []);
-
+  
   return (
     <>
       <div>

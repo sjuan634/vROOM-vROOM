@@ -33,8 +33,8 @@ const UserLogin = () => {
             <div className='login-card'>
                 <h3>User Login</h3>
                 <form onSubmit={(e) => e.preventDefault()}>
-                    <input type="email" onChange={e => setEmail(e.target.value)} value={email} />
-                    <input type="password" onChange={e => setPassword(e.target.value)} value={password} />
+                    <input type="email" placeholder='Enter Email Address' onChange={e => setEmail(e.target.value)} value={email} />
+                    <input type="password" placeholder='Enter Password' onChange={e => setPassword(e.target.value)} value={password} />
                     <button type='submit' onClick={handleFormSubmit}>Submit</button>
                     <Link to='/admin-login'>Login as Admin</Link>
                 </form>
