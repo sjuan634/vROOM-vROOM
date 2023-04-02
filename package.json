@@ -8,12 +8,14 @@
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
-    "seeds": "cd server && cd config && node seeds.js"
+    "seeds": "cd server && cd config && node seeds.js",
+    "postinstall": "npm run seeds"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "dotenv": "^16.0.3"
   }
 }
