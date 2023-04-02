@@ -1,4 +1,5 @@
 
 import Navbar from "./Navbar";
-import BookedListing from "./BookedListing";
-export { Navbar, BookedListing}
+import PropertyCard from "./PropertyCard";
+
+export { Navbar, PropertyCard }

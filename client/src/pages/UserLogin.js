@@ -19,10 +19,10 @@ const UserLogin = () => {
                 variables: { email: email, password: password },
             });
             const token = mutationResponse.data.login.token;
-            Auth.login(token, false);
+            const id = mutationResponse.data.login.user._id;
+            Auth.login(token, undefined, id);
         } catch (e) {
             alert('Unauthorized')
-            console.log(e);
         }
     };
 
