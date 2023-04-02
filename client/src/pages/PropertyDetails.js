@@ -10,6 +10,8 @@ import { useEffect, useState } from 'react';
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
 import { CREATE_CHECKOUT_SESSION } from '../utils/mutations';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const PropertyDetails = () => {
 
@@ -17,6 +19,9 @@ const PropertyDetails = () => {
     const loggedIn = Auth.loggedIn()
 
     const [nights_number, setNightNumber] = useState(0)
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
+    const [numNights, setNumNights] = useState(0);
     const { id } = useParams()
     const [bill, setBill] = useState(0)
 
@@ -29,16 +34,35 @@ const PropertyDetails = () => {
     const [createCheckoutSession] = useMutation(CREATE_CHECKOUT_SESSION);
 
     const property = data?.property
-    let date = new Date().toLocaleDateString()
+    // let date = new Date().toLocaleDateString()
+
+    const handleStartDateSelect = (date) => {
+        setStartDate(date);
+        calculateNights(date, endDate);
+      }
+
+      const handleEndDateSelect = (date) => {
+        setEndDate(date);
+        calculateNights(startDate, date);
+      }
+      const calculateNights = (start, end) => {
+        if (start && end) {
+          const diffInMs = end.getTime() - start.getTime();
+          const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+          const numNights = Math.round(diffInDays);
+          setNumNights(numNights);
+        }
+      }
+
     useEffect(() => {
-        setBill(nights_number * property?.night_cost)
-    }, [nights_number, property?.night_cost])
+        setBill(numNights * property?.night_cost)
+    }, [numNights, property?.night_cost])
 
 
     const handleSubmit = async () => {
         try {
             const { data } = await createCheckoutSession({
-                variables: { propertyId: id, nights: parseInt(nights_number) },
+                variables: { propertyId: id, nights: parseInt(numNights) },
             });
             window.location = data.createCheckoutSession.url;
         } catch (error) {
@@ -66,20 +90,17 @@ const PropertyDetails = () => {
                     <div className='property_main_details'>
                         <div>
                             <p>Check in Date</p>
-                            <p>{date}</p>
+                            <DatePicker selected={startDate} onChange={handleStartDateSelect} />
                         </div>
                         <div>
                             <p>Select Check out Date</p>
-                            <input type="date" />
+                            <DatePicker selected={endDate} onChange={handleEndDateSelect} />
                         </div>
                     </div>
                     <div className='night_input'>
                         <label htmlFor="night_input">How Many nights you want to reserve?</label>
-                        <input id='night_input'
-                            onChange={(e) => {
-                                setNightNumber(e.target.value)
-                            }}
-                            value={nights_number} type="number" />
+                        <p>Total nights {numNights}</p>
+                        
                     </div>
                     {
                         loggedIn ? (
