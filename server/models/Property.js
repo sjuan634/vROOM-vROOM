@@ -7,6 +7,10 @@ const propertySchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
+    name: {
+        type: String,
+        required: true,
+    },
     images: {
         type: [String],
         required: true,
@@ -15,10 +19,10 @@ const propertySchema = new Schema({
         type: Number,
         required: true,
     },
-    available_date: {
-        type: Date,
+    isAvailable: {
+        type: Boolean,
         required: true,
-        default: Date.now,
+        default: true,
     },
     room: {
         type: Boolean,
@@ -39,6 +43,13 @@ const propertySchema = new Schema({
     bath_number: {
         type: Number,
         required: true,
+    },
+    startDate: {
+        type: Date
+    },
+    endDate: {
+        type: Date
+
     },
     location: {
         type: {

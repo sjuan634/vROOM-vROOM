@@ -19,11 +19,11 @@ const AdminLogin = () => {
                 variables: { email: email, password: password },
             });
             const token = mutationResponse.data.adminLogin.token;
-            console.log(mutationResponse)
-            Auth.login(token, true);
+            const id = mutationResponse.data.adminLogin.user._id;
+
+            Auth.login(token, true, id);
         } catch (e) {
             alert('Unauthorized')
-            console.log(e);
         }
     };
 

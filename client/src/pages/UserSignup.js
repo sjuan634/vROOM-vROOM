@@ -13,7 +13,6 @@ const UserSignup = () => {
     const [addUser, { loading, error, data }] = useMutation(ADD_USER_MUTATION);
 
     const handleSubmit = async (event) => {
-        console.log('first')
         try {
             const { data } = await addUser({ variables: { firstName, lastName, email, password } });
             const token = data.addUser.token
