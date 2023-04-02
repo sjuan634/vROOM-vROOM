@@ -212,7 +212,7 @@ const AddProperty = () => {
                     <input type='text' value={address} onChange={(e) => setAddress(e.target.value)} placeholder='Enter Address' />
                 </div>
                 <div className='voice_desc'>
-                    <textarea placeholder={listening ? "Listening..." : "Click Start to Enter"} onChange={(e) => e.target.value} value={transcript}></textarea>
+                    <textarea placeholder={listening ? "Listening..." : "Click Start to Enter"} onChange={(e) => setDescription(e.target.value)} value={ description || transcript}></textarea>
                     <div>
                         <button onClick={() => {
                             SpeechRecognition.startListening()
