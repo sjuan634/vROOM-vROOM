@@ -70,7 +70,7 @@ const EditProperty = () => {
                 formData.append('upload_preset', 'sch3ictu'); 
 
                 const res = await fetch(
-                    'https://api.cloudinary.com/v1_1/dyeh9qzrd/image/upload', 
+                    'https://api.cloudinary.com/v1_1/dyeh9qzrd/image/upload',
                     {
                         method: 'POST',
                         body: formData,

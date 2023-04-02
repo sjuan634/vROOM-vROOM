@@ -15,8 +15,8 @@ const GlobeLocations = () => {
         return array?.map(obj => ({
             lat: obj.location.coordinates[0],
             lng: obj.location.coordinates[1],
-            size: 0.2,
-            color: ['#FFE066', '#DC3318'][Math.round(Math.random() * 1)],
+            size: 0.3,
+            color: ['#EEC643', '#E6190F'][Math.round(Math.random() * 2)],
             text: "Property"
         }));
     }

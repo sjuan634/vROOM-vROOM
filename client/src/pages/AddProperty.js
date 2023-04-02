@@ -58,7 +58,7 @@ const AddProperty = () => {
             for (let i = 0; i < files.length; i++) {
                 const formData = new FormData();
                 formData.append('file', files[i]);
-                formData.append('upload_preset', 'sch3ictu'); 
+                formData.append('upload_preset', 'sch3ictu');
 
                 const res = await fetch(
                     'https://api.cloudinary.com/v1_1/dyeh9qzrd/image/upload', 
