@@ -1,6 +1,7 @@
 import React, { useState, ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
-import { Box, Flex, Avatar, HStack, Link, IconButton, Button, Menu, MenuButton, MenuList, MenuItem, MenuDivider, useDisclosure, useColorModeValue, Stack } from '@chakra-ui/react';
+import { Box, Flex, Avatar, HStack, IconButton, Button, Menu, MenuButton, MenuList, MenuItem, MenuDivider, useDisclosure, useColorModeValue, Stack } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import user from '../assets/user.png';
 
@@ -86,8 +87,12 @@ const Navbar = () => {
                                 </MenuList>
                             ) : (
                                 <MenuList>
-                                    <MenuItem><Link to='/login'>Log In</Link></MenuItem>
-                                    <MenuItem><Link to='/signup'>Sign Up</Link></MenuItem>
+                                    <MenuItem>
+                                        <Link to='/login'>Log In</Link>
+                                    </MenuItem>
+                                    <MenuItem>
+                                        <Link to='/signup'>Sign Up</Link>
+                                    </MenuItem>
                                 </MenuList>
                             )}
                             {
