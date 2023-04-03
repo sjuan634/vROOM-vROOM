@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "6421108f80515361c61ffb20"
+  },
+  "isAdmin": false,
+  "firstName": "nick",
+  "lastName": "bonner",
+  "email": "nick@test.com",
+  "password": "$2b$10$8XPV/569cOVSuMDqWJBJMOaDts5FKmuwkByXmZ2fWjlgUQJ19K41O",
+  "properties": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642256cad3944214fc8ce3e9"
+  },
+  "isAdmin": false,
+  "firstName": "nick",
+  "lastName": "bonner",
+  "email": "nlb@test.com",
+  "password": "$2b$10$XMgeJVHGIPNU1MQMJZDvYuRTDelnvT3dSo0oMANeTVdM04gRRY2wC",
+  "properties": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64263efb584e3e9e8e46e0fa"
+  },
+  "isAdmin": false,
+  "firstName": "nic",
+  "lastName": "bon",
+  "email": "nicbon@test.com",
+  "password": "$2b$10$30tW7UsWgVlyBZogRD1at.l8oxZYA8R53MDSXUFWGhkJijtJXJvP2",
+  "properties": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "642654d88ee8c8a117429eb5"
+  },
+  "isAdmin": false,
+  "firstName": "noc",
+  "lastName": "bon",
+  "email": "nlb3@test.com",
+  "password": "$2b$10$rhhbgPasj3v7nbRUCv8jNuAaCuowbzDQSH8zX4JH1dABIQAITWbBO",
+  "properties": [],
+  "__v": 0
+}]

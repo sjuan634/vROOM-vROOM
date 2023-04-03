@@ -31,6 +31,7 @@ const Navbar = () => {
                 {loggedin ? (
                     <>
                         <li><Link to='/globe'>See Locations</Link></li>
+                        {!isAdmin && <li><Link to='/bookings'>Bookings</Link></li>}
                         <li><Link onClick={() => Auth.logout()}>Logout</Link></li>
                     </>
                 ) : (<>

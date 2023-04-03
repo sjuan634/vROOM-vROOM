@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Home, Error, UserLogin, UserSignup, AdminLogin, AdminSignup, PropertyDetails, AdminProperties, EditProperty } from './pages'
 import Globe from './pages/GlobeLocations'
 import PaymentSuccessful from './components/Success'
+import Bookings from './pages/Bookings'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/properties' element={<AdminProperties />} />
         <Route path='/editProperty/:id' element={<EditProperty />} />
         <Route path='/success' element={<PaymentSuccessful />} />
+        <Route path='/bookings' element={<Bookings />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </BrowserRouter>

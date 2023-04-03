@@ -231,3 +231,24 @@ mutation createCheckoutSession($propertyId: ID!, $nights: Int!) {
 }
 
 `
+
+export const GET_BOOKINGS = gql`
+  query ViewBooking($bookingId: ID!) {
+    viewBooking(_id: $bookingID) {
+      _id
+      bookedFor
+      name
+      images
+      amountPaid
+      address
+    }
+  }
+`;
+
+export const REMOVE_BOOKING = gql`
+  mutation RemoveBooking($_id: ID!) {
+    removeBooking(_id: $_id) {
+      _id
+    }
+  }
+`;

@@ -1,7 +1,7 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { QUERY_PROPERTIES } from '../utils/queries';
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import Properties from '../pages/Properties';
 
@@ -12,7 +12,7 @@ function BookedListing () {
   if (data) {
     properties = data.properties;
   }
-  
+
   return (
     <>
       <div>
