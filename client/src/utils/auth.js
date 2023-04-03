@@ -40,6 +40,8 @@ class AuthService {
 
 
         window.location.assign('/');
+
+        window.sessionStorage('true');
     }
 
     logout() {
@@ -49,6 +51,8 @@ class AuthService {
         localStorage.removeItem('user_id');
         // this will reload the page and reset the state of the application
         window.location.assign('/');
+
+        window.sessionStorage('false');
     }
 }
 
