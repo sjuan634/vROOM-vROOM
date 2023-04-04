@@ -65,7 +65,6 @@ nav>ul {
   padding: 20px;
   gap: 10px;
   justify-content: center;
-  align-items: center;
 }
 
 .property_main {
@@ -178,9 +177,10 @@ a {
 }
 
 .login-card {
-  width: 500px;
+  max-width: 500px;
+  min-width: 300px;
   min-height: 300px;
-  padding: 20px;
+  /* padding: 20px; */
   background-color: white;
   margin: auto;
   display: flex;
