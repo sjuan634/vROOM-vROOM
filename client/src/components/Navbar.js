@@ -62,9 +62,29 @@ const Navbar = () => {
     return (
         <>
         {loggedin ? (
-            <>
-                <li><Link onClick={() => Auth.logout()}>Log Out</Link></li>
-            </>
+                // <li><Link onClick={() => Auth.logout()}>Log Out</Link></li>
+            <Box bg='#F0F8FF' px={4}>
+                <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+                    <IconButton
+                        size={'md'}
+                        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                        aria-label={'Open Menu'}
+                        display={{ md: 'none' }}
+                        onClick={isOpen ? onClose : onOpen}
+                    />
+                    <HStack spacing={8} alignItems={'center'}>
+                        <Box color='#9F7AEA' fontWeight='extrabold' fontStyle='italic' >vROOM vROOM</Box>
+                        <HStack
+                            as={'nav'}
+                            spacing={4}
+                            display={{ base: 'none', md: 'flex' }}>
+                                <NavLink key={'Home'} href={'/'}>Home</NavLink>
+                                <NavLink key={'Globe'} href={'/globe'}>Globe</NavLink>
+                                <Link key={'Log Out'} onClick={() => Auth.logout()}>Log Out</Link>
+                        </HStack>
+                    </HStack>
+                </Flex>
+            </Box>
         ) : (
             <Box bg='#F0F8FF' px={4}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
