@@ -4,39 +4,25 @@ import { Box, Flex, Text, Link, Avatar, HStack, IconButton, Button, Menu, MenuBu
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import user from '../assets/user.png';
 
-const userLinks = [
+const DropLinks = [
     {
-        name1: 'Log In',
-        href1: '/login'
+        name: 'Log In',
+        href: '/login',
     },
     {
-        name1: 'Sign Up',
-        href1: '/signup'
+        name: 'Sign Up',
+        href: '/signup',
     },
 ];
-
-const UserLinks = ({ children, href }: { children: ReactNode; href: String }) => (
-    <Link
-        px={2}
-        py={1}
-        rounded={'md'}
-        _hover={{
-            textDecoration: 'none',
-            bg: useColorModeValue('gray.200', 'gray.700'),
-        }}
-        href={href}>
-        {children}
-    </Link>
-);
 
 const Links = [
     {
         name: 'Home',
-        href: '/'
+        href: '/',
     },
     {
         name: 'Globe',
-        href: '/globe'
+        href: '/globe',
     },
 ];
 
@@ -120,14 +106,9 @@ const Navbar = () => {
                                 </MenuList>
                             ) : (
                                 <MenuList>
-                                    <MenuItem
-                                        as={'user'}
-                                        spacing={4}
-                                        display={{ base: 'none', md: 'flex' }}>
-                                         {userLinks.map((link) => (
-                                            <UserLinks key={link.name1} href={link.href1}>{link.name1}</UserLinks>
-                                        ))}
-                                    </MenuItem>
+                                     {DropLinks.map((link) => (
+                                        <MenuItem><NavLink key={link.name} href={link.href}>{link.name}</NavLink></MenuItem>
+                                    ))}
                                 </MenuList>
                             )}
                             {
