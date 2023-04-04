@@ -1,12 +1,21 @@
 import React, { useState, ReactNode } from 'react';
 import Auth from '../utils/auth';
-import { Box, Flex, Avatar, HStack, Link, IconButton, Button, Menu, MenuButton, MenuList, MenuItem, MenuDivider, useDisclosure, useColorModeValue, Stack } from '@chakra-ui/react';
+import { Box, Flex, Text, Link, Avatar, HStack, IconButton, Button, Menu, MenuButton, MenuList, MenuItem, MenuDivider, useDisclosure, useColorModeValue, Stack } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import user from '../assets/user.png';
 
-const Links = ['Home', 'Globe'];
+const Links = [
+    {
+        name: 'Home',
+        href: '/'
+    },
+    {
+        name: 'Globe',
+        href: '/globe'
+    },
+];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+const NavLink = ({ children, href }: { children: ReactNode; href: String }) => (
     <Link
         px={2}
         py={1}
@@ -15,7 +24,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
             textDecoration: 'none',
             bg: useColorModeValue('gray.200', 'gray.700'),
         }}
-        href={'#'}>
+        href={href}>
         {children}
     </Link>
 );
@@ -61,7 +70,7 @@ const Navbar = () => {
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
                              {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
+                                <NavLink key={link.name} href={link.href}>{link.name}</NavLink>
                             ))}
                         </HStack>
                     </HStack>
@@ -80,14 +89,14 @@ const Navbar = () => {
                             </MenuButton>
                             {loggedin ? (
                                 <MenuList>
-                                    <MenuItem><Link to='/dashboard'>Dashboard</Link></MenuItem>
+                                    <MenuItem as='a' href='/dashboard'>Dashboard</MenuItem>
                                     <MenuDivider />
-                                    <MenuItem><Link onClick={() => Auth.logout()}>Logout</Link></MenuItem>
+                                    <MenuItem onClick={() => Auth.logout()}>Logout</MenuItem>
                                 </MenuList>
                             ) : (
                                 <MenuList>
-                                    <MenuItem><Link to='/login'>Log In</Link></MenuItem>
-                                    <MenuItem><Link to='/signup'>Sign Up</Link></MenuItem>
+                                    <Text><Link href='/login'>Log In</Link></Text>
+                                    <MenuItem as='a' href='/signup'>Sign Up</MenuItem>
                                 </MenuList>
                             )}
                             {
