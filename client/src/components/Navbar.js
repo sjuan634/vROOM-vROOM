@@ -1,19 +1,7 @@
 import React, { useState, ReactNode } from 'react';
 import Auth from '../utils/auth';
-import { Box, Flex, Text, Link, Avatar, HStack, IconButton, Button, Menu, MenuButton, MenuList, MenuItem, MenuDivider, useDisclosure, useColorModeValue, Stack } from '@chakra-ui/react';
+import { Box, Flex, Link, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import user from '../assets/user.png';
-
-const DropLinks = [
-    {
-        name: 'Log In',
-        href: '/login',
-    },
-    {
-        name: 'Sign Up',
-        href: '/signup',
-    },
-];
 
 const Links = [
     {
@@ -23,6 +11,14 @@ const Links = [
     {
         name: 'Globe',
         href: '/globe',
+    },
+    {
+        name: 'Log In',
+        href: '/login',
+    },
+    {
+        name: 'Sign Up',
+        href: '/signup',
     },
 ];
 
@@ -65,7 +61,12 @@ const Navbar = () => {
 
     return (
         <>
-            <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+        {loggedin ? (
+            <>
+                <li><Link onClick={() => Auth.logout()}>Log Out</Link></li>
+            </>
+        ) : (
+            <Box bg='#F0F8FF' px={4}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <IconButton
                         size={'md'}
@@ -85,52 +86,15 @@ const Navbar = () => {
                             ))}
                         </HStack>
                     </HStack>
-                    <Flex alignItems={'center'}>
-                        <Menu>
-                            <MenuButton
-                                as={Button}
-                                rounded={'full'}
-                                variant={'link'}
-                                cursor={'pointer'}
-                                minW={0}>
-                                <Avatar
-                                    size={'sm'}
-                                    src={user}
-                                />
-                            </MenuButton>
-                            {loggedin ? (
-                                <MenuList>
-                                    <MenuItem as='a' href='/dashboard'>Dashboard</MenuItem>
-                                    <MenuDivider />
-                                    <MenuItem onClick={() => Auth.logout()}>Logout</MenuItem>
-                                </MenuList>
-                            ) : (
-                                <MenuList>
-                                     {DropLinks.map((link) => (
-                                        <MenuItem><NavLink key={link.name} href={link.href}>{link.name}</NavLink></MenuItem>
-                                    ))}
-                                </MenuList>
-                            )}
-                            {
-                                (userId && isAdmin) && (<>
-                                    <li><Link to='/properties'>Your Rentals</Link></li>
-                                </>)
-                            }
-                            {showInstallButton && <Button style={{ width: '100px', position: 'absolute', right: '10px' }} variant='outline' colorScheme='green' onClick={handleInstallClick}>Install</Button>}                        
-                        </Menu>
-                    </Flex>
                 </Flex>
-
-                {isOpen ? (
-                    <Box pb={4} display={{ md: 'none' }}>
-                        <Stack as={'nav'} spacing={4}>
-                            {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
-                            ))}
-                        </Stack>
-                    </Box>
-                ) : null}
             </Box>
+        )}
+        {
+            (userId && isAdmin) && (<>
+                <li><Link to='/properties'>Your Rentals</Link></li>
+            </>)
+        }
+        {showInstallButton && <Button style={{ width: '100px', position: 'absolute', right: '10px' }} variant='outline' colorScheme='green' onClick={handleInstallClick}>Install</Button>}
         </>
     )
 }
