@@ -84,6 +84,16 @@ const Navbar = () => {
                         </HStack>
                     </HStack>
                 </Flex>
+
+                {isOpen ? (
+                    <Box pb={4} display={{ md: 'none' }}>
+                        <Stack as={'nav'} spacing={4}>
+                            <NavLink key={'Home'} href={'/'}>Home</NavLink>
+                            <NavLink key={'Globe'} href={'/globe'}>Globe</NavLink>
+                            <Link key={'Log Out'} onClick={() => Auth.logout()}>Log Out</Link>
+                        </Stack>
+                    </Box>
+                ) : null}
             </Box>
         ) : (
             <Box bg='#F0F8FF' px={4}>
@@ -107,6 +117,16 @@ const Navbar = () => {
                         </HStack>
                     </HStack>
                 </Flex>
+
+                {isOpen ? (
+                    <Box pb={4} display={{ md: 'none' }}>
+                        <Stack as={'nav'} spacing={4}>
+                             {Links.map((link) => (
+                                <NavLink key={link.name} href={link.href}>{link.name}</NavLink>
+                            ))}
+                        </Stack>
+                    </Box>
+                ) : null}
             </Box>
         )}
         {
