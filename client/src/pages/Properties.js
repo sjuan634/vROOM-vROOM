@@ -5,6 +5,7 @@ import { PropertyCard } from '../components';
 
 
 
+
 const Properties = () => {
     const [properties, setProperties] = useState([])
 
