@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Property } = require('../models');
+const { User, Property, Booking } = require('../models');
 const { signToken } = require('../utils/auth')
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
@@ -134,6 +134,23 @@ const resolvers = {
                 id: session.id,
                 url: session.url,
             };
+        },
+        addBooking: async (parent, args, context) => {
+            try {
+                const booking = await Booking.create(args);
+                await booking.populate('user_id').execPopulate();
+                return booking;
+            } catch (err) {
+                throw new AuthenticationError('Booking Not Added');
+            }
+        },
+        removeBooking: async (parent, { _id }, context) => {
+            try {
+                const booking = await Booking.findByIdAndDelete(_id);
+                return booking;
+            } catch (err) {
+                throw new AuthenticationError('Not Removed');
+            }
         }
     },
     User: {

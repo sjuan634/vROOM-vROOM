@@ -94,6 +94,16 @@ const typeDefs = gql`
     signupAdmin(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     adminLogin(email: String!, password: String!): Auth
     createCheckoutSession(propertyId: ID!, nights: Int!): CheckoutSession!
+    addBooking(
+      user_id: ID!
+      name: String!
+      images: [String!]!
+      bookedFor: Int!
+      amountPaid: Float!
+      address: String!
+    ): Booking!
+    removeBooking(_id: ID!): Booking
+    viewBooking(_id: ID!): Booking
   }
 
   input LocationInput {
