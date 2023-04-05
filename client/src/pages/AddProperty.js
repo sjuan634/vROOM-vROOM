@@ -211,22 +211,24 @@ const AddProperty = () => {
                     <label htmlFor="address">Enter Address</label>
                     <input type='text' value={address} onChange={(e) => setAddress(e.target.value)} placeholder='Enter Address' />
                 </div>
+                <div className='text_box'>
+                    <textarea placeholder={listening ? "Listening..." : "Click Start to Enter Description"} onChange={(e) => setDescription(e.target.value)} value={ description || transcript}></textarea>
+                </div>
                 <div className='voice_desc'>
-                    <textarea placeholder={listening ? "Listening..." : "Click Start to Enter"} onChange={(e) => setDescription(e.target.value)} value={ description || transcript}></textarea>
                     <div>
-                        <button onClick={() => {
+                        <button className='voice' onClick={() => {
                             SpeechRecognition.startListening()
                             setListening(true)
                         }}>Start</button>
-                        <button onClick={(e) => {
+                        <button className='voice' onClick={(e) => {
                             SpeechRecognition.stopListening()
                             setDescription(transcript)
                             setListening(false)
                         }}>Stop</button>
-                        <button onClick={resetTranscript}>Reset</button>
+                        <button className='voice' onClick={resetTranscript}>Reset</button>
                     </div>
                 </div>
-                <button onClick={handleSubmit} type='submit'>Submit</button>
+                <button onClick={handleSubmit} className='property_submit' type='submit'>Submit</button>
             </form>
         </div>
     );

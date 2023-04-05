@@ -23,11 +23,11 @@ const PropertyCard = ({ name, price, description, id, images, available, startDa
                     }
 
                     <Stack mt='6' spacing='3'>
-                        <Heading color='#6022dd' size='sm'>{name}</Heading>
-                        <Text color='#2929a3' >
+                        <Heading color='black' size='sm'>{name}</Heading>
+                        <Text color='black' >
                             {description}
                         </Text>
-                        <Text color='6022dd' fontSize='md'>
+                        <Text color='black' fontSize='md'>
                             ${price} per night
                         </Text>
                     </Stack>
