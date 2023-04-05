@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
 import PropertyCard from "./PropertyCard";
+import Footer from './Footer';
 
-export { Navbar, PropertyCard }
+export { Navbar, PropertyCard, Footer }
