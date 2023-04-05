@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mui/icons-material": "^5.11.16",
     "concurrently": "^7.6.0",
     "dotenv": "^16.0.3",
     "react-icons": "^4.8.0"
