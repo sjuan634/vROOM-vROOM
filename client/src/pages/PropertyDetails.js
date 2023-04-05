@@ -71,22 +71,24 @@ const PropertyDetails = () => {
     return (
         <>
             <Navbar />
-            <h1>{property?.name}</h1>
-            <div className='property_details'>
-                <div>Rooms:{property?.bed_number}</div>
-                <div>Bath Rooms:{property?.bath_number}</div>
-                <div>Guests :{property?.max_guests}</div>
-            </div>
-            <div className='property_main'>
-                <Carousel showThumbs={false} width="60%">
+            <div className='details_page'>
+                <h1 className='details_title'>{property?.name}</h1>
+                <div className='property_details'>
+                    <div>Rooms: {property?.bed_number}</div>
+                    <div>Bathrooms: {property?.bath_number}</div>
+                    <div>Guests: {property?.max_guests}</div>
+                </div>
+                <div className='property_main'>
+                    <Carousel className='carousel' showThumbs={false} width="60%">
                     {property?.images.map(item => (
                         <Image key={item} src={item} />
                     ))}
-                </Carousel>
-                <div>
-                    <Text width="100%" display="inline" >Description: {property?.description} </Text>
-                    <div className='property_main_details'>
-                        <div                                 textAlign="center"
+                    </Carousel>
+                    <div>
+                        <Text width="100%" display="inline" fontWeight='bold'>Description: {property?.description} </Text>
+
+                        <div className='property_main_details'>
+                            <div textAlign="center"
 >
                             <Text>Select Check in Date:</Text>
                             <DatePicker
@@ -138,6 +140,7 @@ const PropertyDetails = () => {
                         )
                     }
                     </div>
+                </div>
                 </div>
             </div>
         </>

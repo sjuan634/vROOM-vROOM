@@ -38,8 +38,6 @@ const NavLink = ({ children, href }: { children: ReactNode; href: String }) => (
 
 const Navbar = () => {
     const loggedin = Auth.loggedIn()
-    const userId = localStorage.getItem('user_id')
-    const isAdmin = localStorage.getItem('is_admin')
     const [showInstallButton, setShowInstallButton] = useState(false)
     const [deferredPrompt, setDeferredPrompt] = useState(null)
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -62,7 +60,6 @@ const Navbar = () => {
     return (
         <>
         {loggedin ? (
-                // <li><Link onClick={() => Auth.logout()}>Log Out</Link></li>
             <Box bg='#F0F8FF' px={4}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <IconButton
@@ -73,7 +70,7 @@ const Navbar = () => {
                         onClick={isOpen ? onClose : onOpen}
                     />
                     <HStack spacing={8} alignItems={'center'}>
-                        <Box color='#9F7AEA' fontWeight='extrabold' fontStyle='italic' >vROOM vROOM</Box>
+                        <Box color='#adadeb' fontWeight='extrabold' fontStyle='italic' >vROOM vROOM</Box>
                         <HStack
                             as={'nav'}
                             spacing={4}
@@ -106,7 +103,7 @@ const Navbar = () => {
                         onClick={isOpen ? onClose : onOpen}
                     />
                     <HStack spacing={8} alignItems={'center'}>
-                        <Box color='#9F7AEA' fontWeight='extrabold' fontStyle='italic' >vROOM vROOM</Box>
+                        <Box color='#adadeb' fontWeight='extrabold' fontStyle='italic' >vROOM vROOM</Box>
                         <HStack
                             as={'nav'}
                             spacing={4}
