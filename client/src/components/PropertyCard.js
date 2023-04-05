@@ -11,7 +11,7 @@ const PropertyCard = ({ name, price, description, id, images, available, startDa
     return (
         <>
             <Card maxW='60'>
-                <CardBody>
+                <CardBody >
                     {
                         <Carousel>
                             {
@@ -23,11 +23,11 @@ const PropertyCard = ({ name, price, description, id, images, available, startDa
                     }
 
                     <Stack mt='6' spacing='3'>
-                        <Heading size='sm'>{name}</Heading>
-                        <Text>
+                        <Heading color='#6022dd' size='sm'>{name}</Heading>
+                        <Text color='#2929a3' >
                             {description}
                         </Text>
-                        <Text color='blue.600' fontSize='md'>
+                        <Text color='6022dd' fontSize='md'>
                             ${price} per night
                         </Text>
                     </Stack>
@@ -36,12 +36,12 @@ const PropertyCard = ({ name, price, description, id, images, available, startDa
                 <CardFooter>
                     {isInRange ? (
                         <Link style={{ width: '100%' }} to={`/property/${id}`}>
-                            <Button variant='solid' width="full" colorScheme='blue'>
+                            <Button variant='solid' width="full" colorScheme='purple'>
                                 View Property
                             </Button>
                         </Link>) : (
-                        <Button variant='solid' width='full' colorScheme='red'>
-                            Sorry not available
+                        <Button variant='solid' width='full' colorScheme='blue'>
+                            Sorry Not Available
                         </Button>
                     )}
 

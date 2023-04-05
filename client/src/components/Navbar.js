@@ -121,7 +121,7 @@ const Navbar = () => {
                 {isOpen ? (
                     <Box pb={4} display={{ md: 'none' }}>
                         <Stack as={'nav'} spacing={4}>
-                             {Links.map((link) => (
+                            {Links.map((link) => (
                                 <NavLink key={link.name} href={link.href}>{link.name}</NavLink>
                             ))}
                         </Stack>
