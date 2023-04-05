@@ -1,24 +1,21 @@
-body {
+ #root {
+  margin: 0px;
+  padding: 0px;
+  background-color: #adadeb;
+  min-height: 100%;
+ }
+
+ body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'dejavu sans mono', 'courier','monospace';
+  font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro,'Courier',
     monospace;
-}
-
-nav>ul {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 10px;
-  background-color: aqua;
-  padding: 10px;
 }
 
 .reserve_btn {
@@ -32,7 +29,7 @@ nav>ul {
 .bill_card {
   display: flex;
   padding: 10px;
-  background-color: rgb(214, 211, 211);
+  background-color: #adadeb;
   flex-direction: column;
   width: 100%;
   border-radius: 10px;
@@ -44,7 +41,7 @@ nav>ul {
   text-align: center;
   margin: 10px;
   font-family: sans-serif;
-
+  background-color: #adadeb;
 }
 
 .bill_item {
