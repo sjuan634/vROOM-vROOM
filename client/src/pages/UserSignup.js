@@ -30,8 +30,8 @@ const UserSignup = () => {
                 <h3>User Signup</h3>
                 <form onSubmit={e => e.preventDefault()}>
 
-                    <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder='Enter First name' />
-                    <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder='Enter Last name' />
+                    <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder='Enter First Name' />
+                    <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder='Enter Last Name' />
                     <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Enter Email Address' />
                     <input type="password" value={password} onChange={(e) => setPass(e.target.value)} placeholder='Enter Password' />
                     <button type='submit' onClick={handleSubmit}>Submit</button>

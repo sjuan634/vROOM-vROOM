@@ -32,7 +32,8 @@ const Footer = () => {
             color="action"
             fontSize="large"
             boxSize={10}
-            mr={10}
+            mr={5}
+            ml={3}
             />
         </a>
       <a style={{display: 'flex', flexWrap: "wrap", textAlign: "center", alignItems:"center", justifyContent: "center"}}href='https://github.com/Mary90272'> Maria Fedorova:
