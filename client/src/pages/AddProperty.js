@@ -58,10 +58,10 @@ const AddProperty = () => {
             for (let i = 0; i < files.length; i++) {
                 const formData = new FormData();
                 formData.append('file', files[i]);
-                formData.append('upload_preset', 'sch3ictu');
+                formData.append('upload_preset', `${process.env.REACT_APP_CLOUDINARY_PRESET}`);
 
                 const res = await fetch(
-                    'https://api.cloudinary.com/v1_1/dyeh9qzrd/image/upload', 
+                    `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_KEY}/image/upload`,
                     {
                         method: 'POST',
                         body: formData,
@@ -94,7 +94,7 @@ const AddProperty = () => {
 
     const handleSubmit = async (e) => {
         const response = await axios.get(
-            `https://api.opencagedata.com/geocode/v1/json?q=${zip}&key=c3d98b31892e42ae819d8a2aa242cda2`
+            `https://api.opencagedata.com/geocode/v1/json?q=${zip}&key=${process.env.REACT_APP_ZIP_KEY}`
         );
         const { lat, lng } = response.data.results[0].geometry;
         setLat(lat)
@@ -212,7 +212,7 @@ const AddProperty = () => {
                     <input type='text' value={address} onChange={(e) => setAddress(e.target.value)} placeholder='Enter Address' />
                 </div>
                 <div className='voice_desc'>
-                    <textarea placeholder={listening ? "Listening..." : "Click Start to Enter"} onChange={(e) => setDescription(e.target.value)} value={ description || transcript}></textarea>
+                    <textarea placeholder={listening ? "Listening..." : "Click Start to Enter"} onChange={(e) => setDescription(e.target.value)} value={description || transcript}></textarea>
                     <div>
                         <button onClick={() => {
                             SpeechRecognition.startListening()

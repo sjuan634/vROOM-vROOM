@@ -2,7 +2,7 @@ import React, { useState, ReactNode } from 'react';
 import Auth from '../utils/auth';
 import { Box, Flex, Link, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-
+import { Link as LinkItem } from 'react-router-dom'
 const Links = [
     {
         name: 'Home',
@@ -61,80 +61,80 @@ const Navbar = () => {
 
     return (
         <>
-        {loggedin ? (
+            {loggedin ? (
                 // <li><Link onClick={() => Auth.logout()}>Log Out</Link></li>
-            <Box bg='#F0F8FF' px={4}>
-                <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                    <IconButton
-                        size={'md'}
-                        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-                        aria-label={'Open Menu'}
-                        display={{ md: 'none' }}
-                        onClick={isOpen ? onClose : onOpen}
-                    />
-                    <HStack spacing={8} alignItems={'center'}>
-                        <Box color='#9F7AEA' fontWeight='extrabold' fontStyle='italic' >vROOM vROOM</Box>
-                        <HStack
-                            as={'nav'}
-                            spacing={4}
-                            display={{ base: 'none', md: 'flex' }}>
+                <Box bg='#F0F8FF' px={4}>
+                    <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+                        <IconButton
+                            size={'md'}
+                            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                            aria-label={'Open Menu'}
+                            display={{ md: 'none' }}
+                            onClick={isOpen ? onClose : onOpen}
+                        />
+                        <HStack spacing={8} alignItems={'center'}>
+                            <Box color='#9F7AEA' fontWeight='extrabold' fontStyle='italic' >vROOM vROOM</Box>
+                            <HStack
+                                as={'nav'}
+                                spacing={4}
+                                display={{ base: 'none', md: 'flex' }}>
                                 <NavLink key={'Home'} href={'/'}>Home</NavLink>
                                 <NavLink key={'Globe'} href={'/globe'}>Globe</NavLink>
                                 <Link key={'Log Out'} onClick={() => Auth.logout()}>Log Out</Link>
+                            </HStack>
                         </HStack>
-                    </HStack>
-                </Flex>
+                    </Flex>
 
-                {isOpen ? (
-                    <Box pb={4} display={{ md: 'none' }}>
-                        <Stack as={'nav'} spacing={4}>
-                            <NavLink key={'Home'} href={'/'}>Home</NavLink>
-                            <NavLink key={'Globe'} href={'/globe'}>Globe</NavLink>
-                            <Link key={'Log Out'} onClick={() => Auth.logout()}>Log Out</Link>
-                        </Stack>
-                    </Box>
-                ) : null}
-            </Box>
-        ) : (
-            <Box bg='#F0F8FF' px={4}>
-                <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                    <IconButton
-                        size={'md'}
-                        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-                        aria-label={'Open Menu'}
-                        display={{ md: 'none' }}
-                        onClick={isOpen ? onClose : onOpen}
-                    />
-                    <HStack spacing={8} alignItems={'center'}>
-                        <Box color='#9F7AEA' fontWeight='extrabold' fontStyle='italic' >vROOM vROOM</Box>
-                        <HStack
-                            as={'nav'}
-                            spacing={4}
-                            display={{ base: 'none', sm: 'flex' }}>
-                             {Links.map((link) => (
-                                <NavLink key={link.name} href={link.href}>{link.name}</NavLink>
-                            ))}
+                    {isOpen ? (
+                        <Box pb={4} display={{ md: 'none' }}>
+                            <Stack as={'nav'} spacing={4}>
+                                <NavLink key={'Home'} href={'/'}>Home</NavLink>
+                                <NavLink key={'Globe'} href={'/globe'}>Globe</NavLink>
+                                <Link key={'Log Out'} onClick={() => Auth.logout()}>Log Out</Link>
+                            </Stack>
+                        </Box>
+                    ) : null}
+                </Box>
+            ) : (
+                <Box bg='#F0F8FF' px={4}>
+                    <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+                        <IconButton
+                            size={'md'}
+                            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+                            aria-label={'Open Menu'}
+                            display={{ md: 'none' }}
+                            onClick={isOpen ? onClose : onOpen}
+                        />
+                        <HStack spacing={8} alignItems={'center'}>
+                            <Box color='#9F7AEA' fontWeight='extrabold' fontStyle='italic' >vROOM vROOM</Box>
+                            <HStack
+                                as={'nav'}
+                                spacing={4}
+                                display={{ base: 'none', sm: 'flex' }}>
+                                {Links.map((link) => (
+                                    <NavLink key={link.name} href={link.href}>{link.name}</NavLink>
+                                ))}
+                            </HStack>
                         </HStack>
-                    </HStack>
-                </Flex>
+                    </Flex>
 
-                {isOpen ? (
-                    <Box pb={4} display={{ md: 'none' }}>
-                        <Stack as={'nav'} spacing={4}>
-                            {Links.map((link) => (
-                                <NavLink key={link.name} href={link.href}>{link.name}</NavLink>
-                            ))}
-                        </Stack>
-                    </Box>
-                ) : null}
-            </Box>
-        )}
-        {
-            (userId && isAdmin) && (<>
-                <li><Link to='/properties'>Your Rentals</Link></li>
-            </>)
-        }
-        {showInstallButton && <Button style={{ width: '100px', position: 'absolute', right: '10px' }} variant='outline' colorScheme='green' onClick={handleInstallClick}>Install</Button>}
+                    {isOpen ? (
+                        <Box pb={4} display={{ md: 'none' }}>
+                            <Stack as={'nav'} spacing={4}>
+                                {Links.map((link) => (
+                                    <NavLink key={link.name} href={link.href}>{link.name}</NavLink>
+                                ))}
+                            </Stack>
+                        </Box>
+                    ) : null}
+                </Box>
+            )}
+            {
+                (userId && isAdmin) && (<>
+                    <LinkItem to='/properties'> <li>Your Rentals</li></LinkItem>
+                </>)
+            }
+            {showInstallButton && <Button style={{ width: '100px', position: 'absolute', right: '10px' }} variant='outline' colorScheme='green' onClick={handleInstallClick}>Install</Button>}
         </>
     )
 }
