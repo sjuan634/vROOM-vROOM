@@ -129,11 +129,6 @@ const Navbar = () => {
                 ) : null}
             </Box>
         )}
-        {
-            (userId && isAdmin) && (<>
-                <li><Link to='/properties'>Your Rentals</Link></li>
-            </>)
-        }
         {showInstallButton && <Button style={{ width: '100px', position: 'absolute', right: '10px' }} variant='outline' colorScheme='green' onClick={handleInstallClick}>Install</Button>}
         </>
     )
